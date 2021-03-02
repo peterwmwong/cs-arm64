@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+set -e
+# set -v
+
+sourceFile="${1%.*}"
+echo "Compiling $sourceFile..."
+
+aarch64-linux-gnu-as -o $sourceFile.o $sourceFile.s
+aarch64-linux-gnu-ld -o $sourceFile $sourceFile.o
+qemu-aarch64-static $sourceFile
