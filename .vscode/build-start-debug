@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+set -e
+# set -v
+
+scriptPath="$(pwd)"
+sourceFile="${1%.*}"
+
+echo "Staring in debug mode: $sourceFile..."
+qemu-aarch64-static -g 9876 $sourceFile

@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+set -e
+# set -v
+
+scriptPath="$(pwd)"
+sourceFile="${1%.*}"
+
+$scriptPath/.vscode/build $1
+
+echo "Attaching to remote debugger for $sourceFile..."
+gdb-multiarch -q --nh -ex "file $sourceFile" -ex 'target remote localhost:9876'

@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+set -e
+
+scriptPath="$(pwd)"
+sourceFile="${1%.*}"
+
+$scriptPath/.vscode/build $1
+qemu-aarch64-static -g 9876 $sourceFile

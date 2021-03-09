@@ -11,6 +11,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
         g++-aarch64-linux-gnu \
         gcc-aarch64-linux-gnu \
         gcc-arm-linux-gnueabihf \
+        gdb-multiarch \
         libaudit-dev \
         libc6-dev-arm64-cross \
         libc6-dev-armhf-cross \

@@ -3,9 +3,11 @@
 set -e
 # set -v
 
+scriptPath="$(pwd)"
 sourceFile="${1%.*}"
-echo "Compiling $sourceFile..."
 
-aarch64-linux-gnu-as -o $sourceFile.o $sourceFile.s
-aarch64-linux-gnu-ld -o $sourceFile $sourceFile.o
+$scriptPath/.vscode/build $1
+
+echo "Running $sourceFile..."
 qemu-aarch64-static $sourceFile
+echo 'exit code =' $?

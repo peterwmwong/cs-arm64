@@ -1,12 +1,31 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
         {
             "label": "build-run",
             "type": "shell",
             "command": "clear; .vscode/build-run ${file}",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "build-start-debug",
+            "type": "shell",
+            "command": "clear; .vscode/build-start-debug ${file}",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "attach-debugger",
+            "type": "shell",
+            "command": "clear; .vscode/attach-debugger ${file}",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "disasm",
+            "type": "shell",
+            "command": "clear; .vscode/disasm ${file}",
             "group": "build",
             "problemMatcher": []
         }

@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+set -e
+
+scriptPath="$(pwd)"
+sourceFile="${1%.*}"
+
+$scriptPath/.vscode/build $1
+aarch64-linux-gnu-objdump -s -d -M no-aliases $sourceFile.o
