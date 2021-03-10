@@ -5,8 +5,9 @@ set -e
 
 scriptPath="$(pwd)"
 sourceFile="${1%.*}"
+gdbPort=$(cat $(dirname $0)/.gdb-port)
 
 $scriptPath/.vscode/build $1
 
-echo "Attaching to remote debugger for $sourceFile..."
-gdb-multiarch -q --nh -ex "file $sourceFile" -ex 'target remote localhost:9876'
+echo "Attaching to remote debugger for $sourceFile on port $gdbPort..."
+gdb-multiarch -q --nh -ex "file $sourceFile" -ex "target remote localhost:$gdbPort"

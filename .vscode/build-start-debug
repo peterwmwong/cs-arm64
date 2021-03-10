@@ -5,6 +5,7 @@ set -e
 
 scriptPath="$(pwd)"
 sourceFile="${1%.*}"
+gdbPort=$(cat $(dirname $0)/.gdb-port)
 
-echo "Staring in debug mode: $sourceFile..."
-qemu-aarch64-static -g 9876 $sourceFile
+echo "Starting in $sourceFile in debug mode on port $gdbPort..."
+qemu-aarch64 -g $gdbPort $sourceFile
